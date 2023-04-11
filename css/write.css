@@ -1,0 +1,16 @@
+*{
+    margin: 0 auto;
+    box-sizing: border-box;
+}
+
+.input{
+    margin: 0px 20px 0px 20px;
+}
+
+h4{
+    color: pink; 
+}
+
+p{
+    color: red;
+}
