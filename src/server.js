@@ -36,8 +36,16 @@ app.get('/list',(req,res)=>{
 });
 
 app.post('/add',(req,res)=>{
-    const {title,date} = req.body
-    db.collection('post').insertOne({title,date});
-    res.send('전송완료');
+    const {title,date} = req.body;
+    db.collection('counter').findOne({name:'게시물 갯수'},(err,result)=>{
+        console.log(result.totalPost);
+        var totalPost = result.totalPost;
+        db.collection('post').insertOne({_id:totalPost+1,title,date},()=>{
+            // db.collection('counter').updateOne({})
+        });
+        res.send('전송완료');
+    });
+
+
 });
 
